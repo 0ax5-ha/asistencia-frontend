@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asistencia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="app-header">
+      <h1>📍 Control de Asistencia</h1>
+      <p id="clock">--:--:--</p>
+    </header>
+
+    <main class="card">
+      <h2>Marca tu asistencia</h2>
+      <form id="asistenciaForm">
+        <div class="input-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required />
+        </div>
+
+        <div class="input-group">
+          <label for="curso">Curso</label>
+          <input type="text" id="curso" placeholder="Ej. 4°A" required />
+        </div>
+
+        <button type="submit" class="btn-primary">Marcar Asistencia</button>
+      </form>
+
+      <div id="status" class="status-message"></div>
+    </main>
+
+    <footer>
+      <p>© 2025 Sistema de Asistencia Escolar</p>
+    </footer>
+  </div>
+
+  <script src="user.js"></script>
+  <script>
+    // Reloj en tiempo real
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, "0");
+      const m = String(now.getMinutes()).padStart(2, "0");
+      const s = String(now.getSeconds()).padStart(2, "0");
+      document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

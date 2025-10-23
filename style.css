@@ -1,0 +1,135 @@
+/* 🎨 RESET Y BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(180deg, #005bff 0%, #6fa8ff 100%);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🧭 ESTRUCTURA PRINCIPAL */
+.app-wrapper {
+  width: 100%;
+  max-width: 420px;
+  margin: 20px;
+  text-align: center;
+}
+
+.app-header h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#clock {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 1px;
+}
+
+/* 💳 TARJETA CENTRAL */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+.card h2 {
+  color: #005bff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* 🔤 INPUTS */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.5px solid #cfd8e3;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #005bff;
+  outline: none;
+}
+
+/* 🔘 BOTÓN */
+.btn-primary {
+  width: 100%;
+  background: #005bff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 91, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: #0042c4;
+  box-shadow: 0 4px 12px rgba(0, 66, 196, 0.4);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* 🧾 ESTADO */
+.status-message {
+  margin-top: 20px;
+  font-size: 15px;
+  min-height: 24px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.status-message::before {
+  content: "ℹ️ ";
+}
+
+.status-message.success {
+  color: #00994d;
+}
+
+.status-message.error {
+  color: #d90000;
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ✨ ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
