@@ -1,158 +1,60 @@
-/* 🎨 RESET Y BASE */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(180deg, #005bff 0%, #6fa8ff 100%);
-  color: #333;
-  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: #eef3f9;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2rem;
 }
 
-.app-wrapper {
-  width: 100%;
-  max-width: 900px;
-  margin: 20px;
+.admin-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  width: 95%;
+  max-width: 700px;
+}
+
+h1 {
+  color: #1976d2;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.app-header h1 {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-#clock {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 1px;
-}
-
-/* 💳 TARJETA CENTRAL */
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 25px 20px;
-  margin-top: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.6s ease;
-}
-
-/* 🔧 TOOLBAR */
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-}
-
-.toolbar h2 {
-  color: #005bff;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.btn-refresh {
-  background: #005bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  font-size: 15px;
+input, button {
+  padding: 0.6rem;
+  margin: 0.4rem 0;
   border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #1976d2;
+  color: white;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 8px rgba(0, 91, 255, 0.3);
+  width: 100%;
+  margin-top: .5rem;
 }
 
-.btn-refresh:hover {
-  background: #0042c4;
-  transform: scale(1.05);
+button:hover {
+  background: #0d47a1;
 }
 
-.btn-refresh:active {
-  transform: scale(0.97);
-}
-
-/* 📊 TABLA */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 15px;
-  overflow-x: auto;
+  margin-top: 1rem;
 }
 
 th, td {
-  padding: 12px 10px;
-  text-align: center;
-  border-bottom: 1px solid #e0e0e0;
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+  text-align: left;
 }
 
 th {
-  background-color: #005bff;
+  background: #1976d2;
   color: white;
-  font-weight: 500;
 }
-
-tr:nth-child(even) {
-  background-color: #f8f9fb;
-}
-
-tr:hover {
-  background-color: #eaf1ff;
-}
-
-.no-data {
-  text-align: center;
-  color: #888;
-  font-style: italic;
-}
-
-/* 🧾 ESTADO */
-.status-message {
-  margin-top: 15px;
-  font-size: 15px;
-  min-height: 22px;
-  font-weight: 500;
-}
-
-.status-message.success {
-  color: #00994d;
-}
-
-.status-message.error {
-  color: #d90000;
-}
-
-/* 🦶 FOOTER */
-footer {
-  margin-top: 25px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* ✨ ANIMACIONES */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 📱 RESPONSIVO */
-@media (max-width: 600px) {
-  th, td {
-    font-size: 13px;
-    padding: 8px;
-  }
-  .toolbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-        
