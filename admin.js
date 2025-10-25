@@ -1,57 +1,30 @@
-const API_URL = "http://localhost:3000";
-let token = null;
+const API_URL = "https://asistencia-backend-blkd.onrender.com";
 
-document.getElementById("loginBtn").addEventListener("click", async () => {
-  const pw = document.getElementById("adminPassword").value;
-  const res = await fetch(`${API_URL}/api/admin/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ password: pw })
-  });
+document.getElementById("verRegistros").addEventListener("click", async () => {
+  const clave = document.getElementById("clave").value.trim();
+  if (!clave) return alert("Ingresa la contraseña.");
+
+  const res = await fetch(`${API_URL}/api/registros?key=${clave}`);
   const data = await res.json();
 
-  if (data.ok) {
-    token = data.token;
-    document.getElementById("loginSection").style.display = "none";
-    document.getElementById("panel").style.display = "block";
-    loadRecords();
-  } else {
-    document.getElementById("loginStatus").textContent = "Contraseña incorrecta.";
-  }
+  if (!data || data.ok === false) return alert("Clave incorrecta o error.");
+
+  const cont = document.getElementById("tablaContainer");
+  cont.innerHTML = `
+    <table>
+      <tr><th>Nombre</th><th>Curso</th><th>Fecha</th><th>Hora</th><th>IP</th><th>Ubicación</th></tr>
+      ${data
+        .map(
+          (r) =>
+            `<tr><td>${r.nombre}</td><td>${r.curso}</td><td>${r.fecha}</td><td>${r.hora}</td><td>${r.ip}</td><td>${r.ubicacion}</td></tr>`
+        )
+        .join("")}
+    </table>
+  `;
 });
 
-async function loadRecords() {
-  const res = await fetch(`${API_URL}/api/records`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  const data = await res.json();
-  const tbody = document.querySelector("#recordsTable tbody");
-  tbody.innerHTML = "";
-
-  if (data.ok) {
-    data.rows.forEach(r => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${r.name}</td>
-        <td>${r.courseId || ""}</td>
-        <td>${r.date}</td>
-        <td>${r.time}</td>
-        <td>${r.type}</td>
-        <td>${r.ip || ""}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-}
-
-document.getElementById("exportCsv").addEventListener("click", async () => {
-  const res = await fetch(`${API_URL}/api/export`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "asistencia.csv";
-  a.click();
+document.getElementById("descargarCSV").addEventListener("click", () => {
+  const clave = document.getElementById("clave").value.trim();
+  if (!clave) return alert("Ingresa la contraseña.");
+  window.open(`${API_URL}/api/exportar?key=${clave}`, "_blank");
 });
