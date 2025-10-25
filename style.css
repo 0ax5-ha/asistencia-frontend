@@ -1,135 +1,98 @@
-/* 🎨 RESET Y BASE */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --clr-primary: #1976d2;
+  --clr-bg: #f2f4f8;
+  --clr-text: #1a1a1a;
+  --clr-border: #d0d0d0;
+  --clr-success: #2e7d32;
+  --clr-error: #c62828;
 }
 
 body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(180deg, #005bff 0%, #6fa8ff 100%);
-  color: #333;
-  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
-/* 🧭 ESTRUCTURA PRINCIPAL */
 .app-wrapper {
-  width: 100%;
-  max-width: 420px;
-  margin: 20px;
+  width: 95%;
+  max-width: 400px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.app-header {
+  background: var(--clr-primary);
+  color: white;
   text-align: center;
+  padding: 1rem;
 }
 
-.app-header h1 {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-#clock {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 1px;
-}
-
-/* 💳 TARJETA CENTRAL */
 .card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 25px 20px;
-  margin-top: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.6s ease;
+  padding: 1.5rem;
 }
 
-.card h2 {
-  color: #005bff;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-/* 🔤 INPUTS */
 .input-group {
-  text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-.input-group label {
-  font-weight: 500;
+label {
   display: block;
-  margin-bottom: 6px;
-  color: #333;
+  margin-bottom: .4rem;
+  font-weight: 600;
 }
 
-.input-group input {
+input {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
+  padding: .6rem;
+  border: 1px solid var(--clr-border);
   border-radius: 8px;
-  border: 1.5px solid #cfd8e3;
-  transition: border-color 0.3s;
+  font-size: 1rem;
 }
 
-.input-group input:focus {
-  border-color: #005bff;
-  outline: none;
-}
-
-/* 🔘 BOTÓN */
 .btn-primary {
   width: 100%;
-  background: #005bff;
-  color: #fff;
+  background: var(--clr-primary);
   border: none;
-  padding: 12px;
-  font-size: 17px;
+  color: white;
+  padding: .8rem;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 3px 8px rgba(0, 91, 255, 0.3);
 }
 
 .btn-primary:hover {
-  background: #0042c4;
-  box-shadow: 0 4px 12px rgba(0, 66, 196, 0.4);
+  background: #1565c0;
 }
 
-.btn-primary:active {
-  transform: scale(0.98);
-}
-
-/* 🧾 ESTADO */
 .status-message {
-  margin-top: 20px;
-  font-size: 15px;
-  min-height: 24px;
+  margin-top: 1rem;
+  padding: .7rem;
+  border-radius: 8px;
   font-weight: 500;
-  transition: color 0.3s;
-}
-
-.status-message::before {
-  content: "ℹ️ ";
+  display: none;
+  text-align: center;
 }
 
 .status-message.success {
-  color: #00994d;
+  background: #e8f5e9;
+  color: var(--clr-success);
 }
 
 .status-message.error {
-  color: #d90000;
+  background: #ffebee;
+  color: var(--clr-error);
 }
 
 footer {
-  margin-top: 25px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* ✨ ANIMACIONES */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  text-align: center;
+  font-size: 0.8rem;
+  color: #555;
+  padding: 1rem;
 }
